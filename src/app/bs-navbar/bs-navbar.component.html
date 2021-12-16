@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="home">O</a>
@@ -10,17 +11,21 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="cart">Shopping cart</a>
         </li>
-        <li *ngIf="!(user$ | async )" class="nav-item">
+        <ng-template #anonymousUser>
+        <li  class="nav-item">
           <a class="nav-link" routerLink="login">Login</a>
         </li>
-        <li ngbDropdown class="nav-item dropdown" *ngIf="user$ | async as user">
+        </ng-template>
+        <li ngbDropdown class="nav-item dropdown" *ngIf="appUser; else anonymousUser ">
           <a ngbDropdownToggle class="nav-link dropdown-toggle "  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{user.displayName}}
+            {{appUser.name}}
           </a>
           <ul ngbDropdownMenu class="dropdown-menu " aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item"  routerLink="myorder">My Orders</a></li>
+           <ng-container *ngIf="appUser.isAdmin">
             <li><a class="dropdown-item" routerLink="admin/orders">Manage Orders</a></li>
-            <li><a class="dropdown-item" routerLink="admin/orders">Manage Products</a></li>
+            <li><a class="dropdown-item" routerLink="admin/products">Manage Products</a></li>
+          </ng-container>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logout()">Log Out</a></li>
           </ul>
