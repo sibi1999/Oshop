@@ -3,6 +3,7 @@
 
   <button
 (click)="login()"
+*ngIf="!(auth.user$ | async)"
 class="btn btn-primary">Google Login</button>
 </div>
 

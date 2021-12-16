@@ -1,3 +1,5 @@
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +21,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { OrdersComponent } from './admin/orders/orders.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuardService } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
 
 
 
@@ -45,7 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireAuthModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [AuthGuardService,AuthService,UserService,AdminAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
