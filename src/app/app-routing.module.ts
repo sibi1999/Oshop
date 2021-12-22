@@ -10,6 +10,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 const routes: Routes = [
 
@@ -42,6 +43,9 @@ canActivate:[AuthGuardService]},
 
  {path:'admin/products',
  component:AdminProductsComponent,canActivate:[AuthGuardService,AdminAuthGuardService ]},
+
+ {path:'admin/products/new',
+ component:ProductFormComponent,canActivate:[AuthGuardService,AdminAuthGuardService ]},
 
  {path:'admin/orders',
  component:OrdersComponent,canActivate:[AuthGuardService,AdminAuthGuardService ]},
