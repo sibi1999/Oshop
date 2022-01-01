@@ -27,6 +27,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation'
 
 
 
@@ -52,7 +53,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule,FormsModule
+    NgbModule,FormsModule,CustomFormsModule
   ],
   providers: [AuthGuardService,AuthService,UserService,AdminAuthGuardService,CategoryService,ProductService],
   bootstrap: [AppComponent]
