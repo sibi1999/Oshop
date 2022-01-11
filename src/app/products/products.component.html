@@ -1,1 +1,51 @@
-<p>products works!</p>
+
+<div class="row">
+  <div class="col-3">
+    <div class="list-group" *ngFor="let category of categories">
+      <a class="list-group-item list-group-item-action" routerLink="/" [queryParams]="{category:category.key}">{{category.name}}</a>
+
+    </div>
+
+  </div>
+  <div class="col">
+
+    <div class="row row-cols-2">
+
+      <ng-container *ngFor="let product of products;let i=index" >
+      <div class="col">
+        <div class="card" style="width: 18rem;" >
+          <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.price}}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 p-3"  *ngIf="i%2!=0" style="background-color:white;"></div>
+
+      </ng-container>
+  </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

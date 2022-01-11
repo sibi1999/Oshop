@@ -24,7 +24,11 @@ export class AppComponent {
           this.user.save(user);
 
           const returnUrl=localStorage.getItem('returnUrl');
-          router.navigate([returnUrl])
+          if(returnUrl){
+            localStorage.removeItem("returnUrl");
+            router.navigate([returnUrl]);
+          }
+
         }
       }
 
