@@ -1,12 +1,8 @@
 
 <div class="row">
   <div class="col-3">
-    <a [class.active]="!category" class="list-group-item list-group-item-action" routerLink="/" >All</a>
+  <app-product-filter [category]="category"></app-product-filter>
 
-    <div class="list-group" *ngFor="let c of categories">
-      <a [class.active]="(category==c.key)" class="list-group-item list-group-item-action" routerLink="/" [queryParams]="{category:c.key}">{{c.name}}</a>
-
-    </div>
 
   </div>
   <div class="col">
@@ -15,14 +11,7 @@
 
       <ng-container *ngFor="let product of filteredProducts;let i=index" >
       <div class="col">
-        <div class="card" style="width: 18rem;" >
-          <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{product.title}}</h5>
-            <p class="card-text">{{product.price | currency:'USD':true}}</p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
-          </div>
-        </div>
+        <app-product-card [product]="product"  [showActions]="showActions"></app-product-card>
       </div>
       <div class="w-100 p-3"  *ngIf="i%2!=0" style="background-color:white;"></div>
 

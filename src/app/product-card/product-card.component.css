@@ -1,0 +1,16 @@
+.card-img-top
+{
+
+height: 300px;
+}
+
+.card-footer
+{
+  padding: 0px;
+  background-color: #0d6efd;
+}
+
+#cartButton
+{
+  width: 100%;
+}

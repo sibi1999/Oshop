@@ -13,9 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductsComponent implements OnInit {
 products:Product[]=[];
 filteredProducts:Product[]=[];
-categories:any[]=[];
 category:string='';
-  constructor(private route: ActivatedRoute,productService:ProductService,categoryService:CategoryService) {
+showActions:boolean=true;
+  constructor(private route: ActivatedRoute,productService:ProductService) {
   productService.getAll().pipe(switchMap((data)=>{
     this.products=data;
     return this.route.queryParamMap;})).subscribe((params)=>{
@@ -24,7 +24,7 @@ category:string='';
 
 
     });
-  categoryService.getCategories().subscribe((data)=>this.categories=data);
+
 
 
 

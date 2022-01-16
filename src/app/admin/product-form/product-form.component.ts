@@ -19,6 +19,8 @@ export class ProductFormComponent implements OnInit {
   categories:any;
   product:any={};
   id:string | null='';
+  showActions:boolean=false;
+
   constructor(private category:CategoryService,private productService:ProductService,
               private route:ActivatedRoute,private router:Router) {
    this.category.getCategories().subscribe((data)=>{
